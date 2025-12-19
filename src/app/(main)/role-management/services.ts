@@ -1,6 +1,6 @@
 import { RoleResponse } from "./model";
 
-const apiUrl = "http://ec2-13-60-218-157.eu-north-1.compute.amazonaws.com:3008/api/v1";
+const apiUrl = "http://localhost:3008/api/v1";
 
 export const getRoles = async (token: string): Promise<RoleResponse[]> => {
   try {

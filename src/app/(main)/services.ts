@@ -5,7 +5,7 @@ interface UserResponse {
   email: string;
 }
 
-const apiUrl = "http://ec2-13-60-218-157.eu-north-1.compute.amazonaws.com:3008/api/v1";
+const apiUrl = "http://ec2-13-62-76-73.eu-north-1.compute.amazonaws.com:3008/api/v1";
 
 export const getAdmin = async (token: string): Promise<UserResponse> => {
   try {

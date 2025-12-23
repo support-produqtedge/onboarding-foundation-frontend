@@ -43,6 +43,7 @@ export const ChangePasswordForm = ({id}: ChangePasswordProps) => {
     setIsLoading(true);
 
     changePassword(id, passwordChange.password).then(res => {
+      console.log(res);
       if ("error" in res) {
         toast({
           title: "Change Password",
@@ -83,7 +84,7 @@ export const ChangePasswordForm = ({id}: ChangePasswordProps) => {
               name="password"
               className="mb-5 [&_input]:py-[15px]"
               placeholder="Enter email"
-              type="text"
+              type="password"
               handleChange={handlePasswordChange}
 
               />

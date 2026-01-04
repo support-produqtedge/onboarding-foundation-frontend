@@ -3,6 +3,15 @@ interface UserResponse {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
+  role: {
+    name: string;
+    description: string;
+  },
+  company: {
+    id: string;
+    company_name: string;
+  }
 }
 
 const apiUrl = "http://ec2-13-62-76-73.eu-north-1.compute.amazonaws.com:3008/api/v1";

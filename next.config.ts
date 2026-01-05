@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://ec2-13-62-76-73.eu-north-1.compute.amazonaws.com:3008/api/v1/admin/auth/:path*"
+        destination: "http://ec2-13-62-76-73.eu-north-1.compute.amazonaws.com:3008/api/v1/:path*"
       },
       {
         source: '/api/admin/auth/:path*',

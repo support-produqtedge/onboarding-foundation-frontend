@@ -84,6 +84,11 @@ export const CreateRoleModal = ({ onClose, token, edit, id, companyId }: CreateR
       if (!ignore) {
         fetchRole().then(res => {
           setRole(res);
+          setRoleCred({
+            name: res.name,
+            description: res.description,
+            companyId
+          });
         })
       }
     }
@@ -140,7 +145,7 @@ export const CreateRoleModal = ({ onClose, token, edit, id, companyId }: CreateR
     <InfoModal
       title="Create Role"
       onModalClose={() => onClose()}
-      actionName="Create Role"
+      actionName={edit ? "Edit Role" : "Create Role"}
       action={() => onSubmit()}
       isLoading={isLoading}
     >

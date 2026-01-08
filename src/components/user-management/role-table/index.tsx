@@ -35,7 +35,7 @@ export async function RoleTable({ roles, token, companyId }: RoleTableProps) {
           <div>
             <input placeholder="Search" className="border"/>
           </div>
-          <CreateRoleButton token={token} />
+          <CreateRoleButton token={token} companyId={companyId} />
         </div>
         <Table>
           <TableHeader>

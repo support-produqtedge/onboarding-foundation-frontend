@@ -26,7 +26,6 @@ companyId: string;
 }
 
 export async function RoleTable({ roles, token, companyId }: RoleTableProps) {
-  const data = await getInvoiceTableData();
 
   return (
     <>

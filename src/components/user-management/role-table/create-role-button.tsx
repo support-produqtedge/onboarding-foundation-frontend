@@ -15,7 +15,7 @@ export const CreateRoleButton = ({ token, companyId }: CreateRoleModalProps) => 
 
   return (
     <>
-      {modal && <CreateRoleModal token={token} onClose={() => setModal(false)} companyId={companyId} />}
+      {modal && <CreateRoleModal token={token} companyId={companyId} onClose={() => setModal(false)} />}
       <Button
         label="Create Role"
         variant="dark"

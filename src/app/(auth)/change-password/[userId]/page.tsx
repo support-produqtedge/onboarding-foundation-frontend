@@ -2,8 +2,6 @@ import { ChangePasswordForm } from "@/components/auth/ChangePasswordForm";
 import Image from "next/image";
 import { verifyEmail } from './services';
 import { redirect } from "next/navigation";
-import { verifySession } from "@/dal";
-import { deleteSession } from "@/lib/session";
 
 interface Props {
   params: Promise<{userId: string}>;
@@ -11,10 +9,6 @@ interface Props {
 }
 
 const ChangePasswordPage = async ({searchParams, params}: Props) => {
-  const session = await verifySession();
-  if (session) {
-    await deleteSession();
-  }
   const {key} = await searchParams;
   const { userId } = await params;
 

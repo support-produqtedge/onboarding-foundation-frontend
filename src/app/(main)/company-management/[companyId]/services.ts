@@ -14,7 +14,7 @@ export interface UserResponse {
 }
 
 
-const apiUrl = "http://ec2-13-62-76-73.eu-north-1.compute.amazonaws.com:3008/api/v1";
+const apiUrl = "http://localhost:3008/api/v1";
 
 export const getUserByCompany = async (token: string, companyId: string): Promise<UserResponse[]> => {
   try {

@@ -193,6 +193,7 @@ export const CreateUserModal = ({ onClose, token, companyId, edit, id }: CreateU
           name="firstName"
           handleChange={handleInputChange}
           defaultValue={edit ? user?.firstName : userCred.firstName}
+          value={userCred.firstName}
         />
         <InputGroup
           label="Last Name"

@@ -12,13 +12,13 @@ const UserManagementPage = async () => {
   const noOfUsers = users.length;
   const noOfActiveUsers = users.filter(user => user.status).length;
   const userLogged = await getSignedUser(String(token), String(id));
-
+  
   return (
     <div>
-      <OverviewCardsGroup noOfUsers={noOfUsers} noOfActiveUser={noOfActiveUsers} noOfRoles={noOfRoles} />
+      {role !== "superAdmin" && (<OverviewCardsGroup noOfUsers={noOfUsers} noOfActiveUser={noOfActiveUsers} noOfRoles={noOfRoles} />)}
       <div className="mt-10">
         <h1 className="text-xl font-semibold">Users</h1>
-        <UserTable users={users} token={String(token)} companyId={String(companyId)} userPermission={userLogged ? { permissions: userLogged.permissions } : { permissions: { user_management: { view: true, write: true, statusChange: true }, role_management: { view: true, write: true, statusChange: true } } }} />
+        <UserTable users={users || []} token={String(token)} companyId={String(companyId)} userPermission={userLogged ? { permissions: userLogged.permissions } : { permissions: { user_management: { view: true, write: true, statusChange: true }, role_management: { view: true, write: true, statusChange: true } } }} />
       </div>
     </div>
   )

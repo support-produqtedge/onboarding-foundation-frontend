@@ -108,7 +108,7 @@ export async function UserTable({ users, token, companyId, userPermission }: Use
 
 
                 <TableCell className="xl:pr-7.5">
-                  <UserMenuButton token={token} id={item.id} companyId={companyId} status={item.status} userPermission={userPermission} />
+                  <UserMenuButton token={token} id={item.id} companyId={companyId} status={item.status} userPermission={userPermission}/>
                 </TableCell>
               </TableRow>
             ))}

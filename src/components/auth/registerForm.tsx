@@ -59,14 +59,6 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    if (registerUserCred.password !== registerUserCred.confirmPassword) {
-      e.preventDefault();
-      setConfirmPasswordError("Passwords do not match");
-      return;
-    }
-  };
-
   return (
     <div className="w-[80%] pb-10">
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
@@ -86,9 +78,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
           <div className="bg-gray-200 h-1 w-1/2 rounded-2xl"></div>
         </div>
         {error && <p className="text-red-600 text-sm text-center -mt-2">{error}</p>}
-        <form action={() => {
-          console.log(registerUserCred);
-        }} onSubmit={handleFormSubmit}>
+        <form action={registerUserAction}>
           <div className="space-y-6 mt-2">
             <div>
               <div className="flex gap-2 justify-between">

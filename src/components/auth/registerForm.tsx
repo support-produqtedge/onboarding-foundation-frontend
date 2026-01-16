@@ -59,6 +59,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
     }
   };
 
+
   return (
     <div className="w-[80%] pb-10">
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
@@ -85,7 +86,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
                 <InputGroup
                   label="First Name"
                   name="firstName"
-                  className="mb-5 [&_input]:py-[15px]"
+                  className="mb-5 [&_input]:py-3.75"
                   placeholder="Enter first name"
                   type="text"
                   handleChange={handleInputChange}
@@ -94,7 +95,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
                 <InputGroup
                   label="Last Name"
                   name="lastName"
-                  className="mb-5 [&_input]:py-[15px]"
+                  className="mb-5 [&_input]:py-3.75"
                   placeholder="Enter last name"
                   type="text"
                   handleChange={handleInputChange}
@@ -104,7 +105,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
               <InputGroup
                 label="Email"
                 name="email"
-                className="mb-5 [&_input]:py-[15px]"
+                className="mb-5 [&_input]:py-3.75"
                 placeholder="Enter email"
                 type="email"
                 handleChange={handleInputChange}
@@ -113,7 +114,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
               <InputGroup
                 label="Phone"
                 name="phone"
-                className="mb-5 [&_input]:py-[15px]"
+                className="mb-5 [&_input]:py-3.75"
                 placeholder="Enter phone number"
                 type="text"
                 handleChange={handleInputChange}
@@ -122,7 +123,7 @@ const RegisterForm = ({ className, ...props }: RegisterFormProps) => {
               <InputGroup
                 label="Password"
                 name="password"
-                className="mb-5 [&_input]:py-[15px]"
+                className="mb-5 [&_input]:py-3.75"
                 placeholder="Enter password"
                 type="password"
                 handleChange={handleInputChange}

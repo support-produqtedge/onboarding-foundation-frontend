@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useActionState, useEffect } from "react";
 import InputGroup from "../ui/InputGroup";
+import { registerSingleUser } from "@/action";
 
 type UserRegisterFormProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -30,6 +31,7 @@ const fetchNin = async (nin: string) => {
   return data;
 }
 
+
 export const UserRegisterForm = ({ className, ...props }: UserRegisterFormProps) => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -56,7 +58,15 @@ export const UserRegisterForm = ({ className, ...props }: UserRegisterFormProps)
   const [validated, setValidated] = useState<{validatedNin: boolean, validatedPassword: boolean}>({
     validatedNin: false,
     validatedPassword: false
-  })
+  });
+  const [error, setError] = useState("");
+  const [state, registerUserAction, isPending] = useActionState(registerSingleUser, undefined);
+
+  useEffect(() => {
+    if (state?.error && state?.error !== error) {
+      setError(state.error)
+    }
+  }, [state]);
 
   const validateConfirmPassword = () => {
     if (formData.confirmPassword && formData.password !== formData.confirmPassword) {
@@ -117,15 +127,6 @@ export const UserRegisterForm = ({ className, ...props }: UserRegisterFormProps)
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      setConfirmPasswordError("Passwords do not match");
-      return;
-    }
-    // Handle form submission here
-    console.log("Form submitted", formData);
-  };
   return (
     <div className="w-[80%] pb-10">
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
@@ -140,8 +141,8 @@ export const UserRegisterForm = ({ className, ...props }: UserRegisterFormProps)
             </p>
           </div>
         </div>
-        {/* {error && <p className="text-red-600 text-sm text-center -mt-2">{error}</p>} */}
-        <form onSubmit={handleSubmit}>
+        {error && <p className="text-red-600 text-sm text-center -mt-2">{error}</p>}
+        <form action={registerUserAction}>
           <div className="space-y-6 mt-2">
             <div>
               <InputGroup
@@ -223,12 +224,12 @@ export const UserRegisterForm = ({ className, ...props }: UserRegisterFormProps)
             <button
               type="submit"
               className="inline-flex w-full items-center justify-center rounded-lg bg-[#24292F] disabled:bg-[#24292F]/60 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#24292F]/90 focus:outline-none focus:ring-4 focus:ring-[#24292F]/50"
-              disabled={confirmPasswordError !== "" || !validated.validatedNin || !validated.validatedPassword}
+              disabled={isPending && confirmPasswordError !== "" || !validated.validatedNin || !validated.validatedPassword}
             >
-              <span className="inline-block pr-2">Continue</span>
-              {/* {isPending && (
+              <span className="inline-block pr-2">Sign Up</span>
+              {isPending && (
                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-white border-t-transparent dark:border-primary dark:border-t-transparent" />
-              )} */}
+              )}
             </button>
           </div>
         </form>

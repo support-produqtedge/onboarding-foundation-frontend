@@ -8,7 +8,7 @@ interface OverviewCardsGroupProps {
 
 export async function OverviewCardsGroup({noOfUsers, noOfRoles, noOfActiveUser}: OverviewCardsGroupProps) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3 2xl:gap-7.5">
+    <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 2xl:gap-7.5">
       <OverviewCard
         label="All Users"
         data={{

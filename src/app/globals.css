@@ -7,5 +7,6 @@
 
 @theme inline {
   --font-sans: var(--font-poppins);
+  --color-textColor: #181D27;
 }
 

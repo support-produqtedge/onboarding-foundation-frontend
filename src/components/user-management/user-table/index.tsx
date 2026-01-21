@@ -10,6 +10,7 @@ import {
 import dayjs from "dayjs";
 import { CreateUserButton } from "./add-user-button";
 import { UserMenuButton } from "./user-menu-button";
+import { SearchIcon } from "@/components/icons";
 
 interface UserTableProps {
   users: {
@@ -44,10 +45,12 @@ export async function UserTable({ users, token, companyId, userPermission }: Use
     <>
       <div className="rounded-[10px] bg-white shadow-1">
         <div className="w-full flex justify-between items-center pb-7">
-          <div>
+          <div className="relative w-90">
+            <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 mt-2.25" />
             <input
               type="text"
-              className="mt-4.5 [&_input]:py-3.75 border border-slate-500 rounded-lg pl-4"
+              name="search"
+              className="mt-4.5 py-1.5 border border-slate-500 rounded-lg pl-10 pr-4 w-full"
               placeholder="Search"
             />
           </div>

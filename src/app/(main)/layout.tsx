@@ -31,7 +31,7 @@ const MainLayout: FC<DashboardLayoutProps> = async ({ children }) => {
         <Sidebar name={`${userLoggedin.firstName} ${userLoggedin.lastName}`} email={userLoggedin.email} role={role} company={String(userLoggedin.company?.company_name || "")} />
 
         <div className="w-full bg-gray-2">
-          <Header name={`${userLoggedin.firstName} ${userLoggedin.lastName}`} />
+          <Header name={String(userLoggedin.company?.company_name || "Admin")} />
           <main className="isolate mx-auto w-full max-w-screen-2xl overflow-hidden p-4 md:p-6 2xl:p-10">
             {children}
           </main>

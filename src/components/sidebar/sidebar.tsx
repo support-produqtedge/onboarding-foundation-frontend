@@ -107,9 +107,6 @@ export function Sidebar({name, email, role, company}: SideBarProps) {
             >
               <Logo />
             </Link>
-            <div>
-              <h1>Company: {company}</h1>
-            </div>
 
             {isMobile && (
               <button
